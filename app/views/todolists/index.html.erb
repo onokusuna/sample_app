@@ -5,4 +5,7 @@
 		<span>
 			<%= link_to link_to list.title, todolist_path(list.id) %>
 		</span>
+		<!-- 8章で追記 画像表示を追加 Refile特有の書き方 -->
+		<p>画像</p>
+		<%= attachment_image_tag list, :image, :fill, 100, 100, format: 'jpeg' %>
 	<% end %>

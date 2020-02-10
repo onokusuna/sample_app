@@ -12,6 +12,9 @@
 	<!-- テキストエリア -->
 	<h4>本文</h4>
 	<%= f.text_area :body %>
+	<!-- 8章追記箇所 画像を表示 -->
+	<h4>画像</h4>
+	<%= f.attachment_field :image %>
 	<!-- 送信ボタン submit -->
 	<%= f.submit '投稿' %>
 

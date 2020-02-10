@@ -36,14 +36,23 @@ class TodolistsController < ApplicationController
 	end
 
 	def update
+		# find(引数?)でidよりDBから該当データを抽出
 		list = List.find(params[:id])
 		list.update(list_params)
+		# リダイレクトを設定 リンク先はtodolist(名前付きルート+id)
 		redirect_to todolist_path(list.id)
 	end
+
+	def destroy
+		list = List.find(params[:id]) # データ(レコード)を1件取得
+		list.destroy # データ（レコード）を削除
+		redirect_to todolists_path # List一覧画面へリダイレクト
+	end
+
 
 	private# ここから下はcontrollerの中でしか呼び出せませんというメソッド（todolists_controller.rb内だけ）
 
 	def list_params# requireメソッドで受け取るパラメータ群を指定、permitメソッドで利用可能なパラメータ名を指定
-		params.require(:list).permit(:title, :body)
+		params.require(:list).permit(:title, :body, :image)
 	end
 end

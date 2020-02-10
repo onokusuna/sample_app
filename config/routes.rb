@@ -16,7 +16,10 @@ Rails.application.routes.draw do
 	# editアクションを追加 今回も、名前付きルート（as: 'edit_todolist'）の記述を定義
 	# ルーティングのURLに:idを用いて記述すると、todolists/◯◯/editのすべてのURLが対象になります。
 	get 'todolists/:id/edit' => 'todolists#edit', as:'edit_todolist'
-	
+
 	# updateアクションのルーティングを追加
 	patch 'todolists/:id' => 'todolists#update', as: 'update_todolist'
+
+	# desteoyアクション追加
+	delete 'todolists/:id' => 'todolists#destroy', as: 'destroy_todolist'
 end
